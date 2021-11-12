@@ -97,6 +97,16 @@
 
         <div class="mt-5 md:mt-0 md:col-span-2">
           <div class="grid grid-cols-1 sm:grid-cols-8 sm:col-span-8 md:gap-6">
+            <div class="flex items-start sm:col-span-6">
+              <div class="flex items-center h-5">
+                <%= form.check_box :looking_for_work, class: "focus:ring-gray-500 h-4 w-4 text-gray-600 border-gray-300 rounded" %>
+              </div>
+              <div class="ml-3 text-sm">
+                <%= form.label :looking_for_work, class: "font-medium text-gray-700" %>
+                <p class="text-gray-500">Your profile will be hidden if you aren't actively looking for work.</p>
+              </div>
+            </div>
+
             <div class="sm:col-span-2">
               <%= form.label :available_on, class: "block text-sm font-medium text-gray-700" %>
               <div class="mt-1">
@@ -104,9 +114,6 @@
               </div>
             </div>
           </div>
-          <p class="sm:col-span-6 mt-2 text-sm text-gray-500">
-          Leave blank if you won't be available for a while.
-          </p>
         </div>
       </div>
     </div>

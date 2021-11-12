@@ -14,5 +14,6 @@ class Developer < ApplicationRecord
     max_file_size: 10.megabytes
 
   scope :available, -> { where("available_on <= ?", Date.today) }
+  scope :looking_for_work, -> { where(looking_for_work: true) }
   scope :most_recently_added, -> { order(created_at: :desc) }
 end

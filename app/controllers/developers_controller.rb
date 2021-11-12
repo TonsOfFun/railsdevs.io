@@ -4,7 +4,7 @@ class DevelopersController < ApplicationController
   before_action :authenticate_user!, only: %i[new create edit update]
 
   def index
-    @pagy, @developers = pagy(Developer.most_recently_added.with_attached_avatar)
+    @pagy, @developers = pagy(developers)
   end
 
   def new
@@ -45,6 +45,10 @@ class DevelopersController < ApplicationController
   end
 
   private
+
+  def developers
+    Developer.looking_for_work.most_recently_added.with_attached_avatar
+  end
 
   def developer_params
     params.require(:developer).permit(
